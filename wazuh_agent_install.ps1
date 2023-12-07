@@ -14,8 +14,7 @@ Start-Sleep -Seconds 5
 $defaultOssecConfPath = "C:\Program Files (x86)\ossec-agent\ossec.conf"
 
 # This is the custom ossec.conf file we want to replace
-$userPath = Read-Host "Enter your username"
-$customConfPath = "C:\Users\$userPath\install_wazuh_agent\custom.conf"
+$customConfPath = ".\custom.conf"
 
 if (-not (Test-Path $defaultOssecConfPath)) {
     Write-Host "ossec.conf not found. Please check the file path."
