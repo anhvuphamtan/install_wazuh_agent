@@ -14,7 +14,7 @@ Start-Sleep -Seconds 5
 $defaultOssecConfPath = "C:\Program Files (x86)\ossec-agent\ossec.conf"
 
 # This is the custom ossec.conf file we want to replace
-$customConfPath = ".\custom.conf"
+$customConfPath = ".\windows_custom.conf"
 
 if (-not (Test-Path $defaultOssecConfPath)) {
     Write-Host "ossec.conf not found. Please check the file path."
