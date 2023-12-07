@@ -9,16 +9,16 @@ curl -so wazuh-agent.deb https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-ag
 echo "Install Wazuh agent successfully"
 sleep 5
 
-systemctl daemon-reload
-systemctl enable wazuh-agent
-systemctl start wazuh-agent
+sudo systemctl daemon-reload
+sudo systemctl enable wazuh-agent
+sudo systemctl start wazuh-agent
 
 echo "Reload Wazuh agent successfully"
 
-sed -i "s/^deb/#deb/" /etc/apt/sources.list.d/wazuh.list
-apt-get update
-echo "wazuh-agent hold" | dpkg --set-selections
+sudo sed -i "s/^deb/#deb/" /etc/apt/sources.list.d/wazuh.list
+sudo apt-get update
+echo "wazuh-agent hold" | sudo dpkg --set-selections
 
 echo "Disable auto update on Wazuh agent successfully"
 
-rm -rf wazuh-agent.deb
+sudo rm -rf wazuh-agent.deb
