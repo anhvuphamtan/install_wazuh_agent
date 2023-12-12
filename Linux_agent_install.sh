@@ -5,6 +5,7 @@ read agent_group
 
 curl -so wazuh-agent.deb https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.5.4-1_amd64.deb && sudo WAZUH_MANAGER='wazuh-uat-agent.styl.solutions' WAZUH_AGENT_GROUP=$agent_group WAZUH_AGENT_NAME=$agent_name dpkg -i ./wazuh-agent.deb
 
+sudo sed -i '/<client>/,/<\/client>/ s|<server>|<server>\n    <retry_interval>600</retry_interval>|' ossec.conf
 
 echo "Install Wazuh agent successfully"
 sleep 5
