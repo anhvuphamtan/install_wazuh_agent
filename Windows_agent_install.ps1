@@ -3,7 +3,7 @@ $wazuhAgentPath = "${env:tmp}\wazuh-agent.msi"
 
 Invoke-WebRequest -Uri $wazuhAgentUri -OutFile $wazuhAgentPath
 
-$installCommand = "msiexec.exe /i $wazuhAgentPath /q WAZUH_MANAGER='wazuh-agent.styl.solutions' WAZUH_REGISTRATION_SERVER='wazuh-uat-agent.styl.solutions' WAZUH_AGENT_GROUP='default'"
+$installCommand = "msiexec.exe /i $wazuhAgentPath /q WAZUH_MANAGER='wazuh-agent.styl.solutions' WAZUH_REGISTRATION_SERVER='wazuh-agent.styl.solutions' WAZUH_AGENT_GROUP='default'"
 
 Invoke-Expression $installCommand
 Write-Host "Wazuh agent installed successfully."
