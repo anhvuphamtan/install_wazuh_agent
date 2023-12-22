@@ -2,7 +2,7 @@ echo "Enter your wazuh agent name"
 read agent_name
 echo "Enter wazuh agent group"
 read agent_group
-manager="wazuh-uat-agent.styl.solutions"
+manager="wazuh-agent.styl.solutions"
 
 curl -so wazuh-agent.deb https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.7.0-1_amd64.deb && sudo WAZUH_MANAGER=$manager WAZUH_AGENT_GROUP=$agent_group WAZUH_AGENT_NAME=$agent_name dpkg -i ./wazuh-agent.deb
 
