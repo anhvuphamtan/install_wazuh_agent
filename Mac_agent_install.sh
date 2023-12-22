@@ -1,4 +1,4 @@
-MANAGER="wazuh-uat-agent.styl.solutions"
+MANAGER="wazuh-agent.styl.solutions"
 echo "Enter Wazuh Agent name"
 read AGENT_NAME
 
