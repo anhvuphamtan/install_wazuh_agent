@@ -1,9 +1,9 @@
-$wazuhAgentUri  = "https://packages.wazuh.com/4.x/windows/wazuh-agent-4.5.4-1.msi"
+$wazuhAgentUri  = "https://packages.wazuh.com/4.x/windows/wazuh-agent-4.7.0-1.msi"
 $wazuhAgentPath = "${env:tmp}\wazuh-agent.msi"
 
 Invoke-WebRequest -Uri $wazuhAgentUri -OutFile $wazuhAgentPath
 
-$installCommand = "msiexec.exe /i $wazuhAgentPath /q WAZUH_MANAGER='wazuh-uat-agent.styl.solutions' WAZUH_REGISTRATION_SERVER='wazuh-uat-agent.styl.solutions' WAZUH_AGENT_GROUP='default'"
+$installCommand = "msiexec.exe /i $wazuhAgentPath /q WAZUH_MANAGER='wazuh-agent.styl.solutions' WAZUH_REGISTRATION_SERVER='wazuh-uat-agent.styl.solutions' WAZUH_AGENT_GROUP='default'"
 
 Invoke-Expression $installCommand
 Write-Host "Wazuh agent installed successfully."
@@ -24,8 +24,9 @@ if (-not (Test-Path $defaultOssecConfPath)) {
     # Replace ossec.conf with replace.conf
     
     $agentName = Read-Host "Enter your agent name"
-    $groupName = Read-Host "Enter your agent group name"
-
+    # $groupName = Read-Host "Enter your agent group name"
+    $groupName = "Windows_PC"
+    
     $customConfContent = Get-Content -Path $customConfPath -Raw
     $customConfContent = $customConfContent -replace '<agent_name>AGENT_NAME</agent_name>', "<agent_name>$agentName</agent_name>"
     $customConfContent = $customConfContent -replace '<groups>GROUP_NAME</groups>', "<groups>$groupName</groups>"
