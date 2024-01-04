@@ -39,4 +39,4 @@ Start-Service Wazuh
 
 Write-Host "Wazuh agent service started successfully."
 
-Set-ExecutionPolicy Default -Force
+# Set-ExecutionPolicy Default -Force
