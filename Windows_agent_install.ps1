@@ -25,7 +25,7 @@ if (-not (Test-Path $defaultOssecConfPath)) {
     
     $agentName = Read-Host "Enter your agent name"
     # $groupName = Read-Host "Enter your agent group name"
-    $groupName = "Windows_PC"
+    $groupName = Read-Host "Enter your agent group name"
     
     $customConfContent = Get-Content -Path $customConfPath -Raw
     $customConfContent = $customConfContent -replace '<agent_name>AGENT_NAME</agent_name>', "<agent_name>$agentName</agent_name>"
